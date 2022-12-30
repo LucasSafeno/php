@@ -74,6 +74,26 @@ class Postagem{
 	}// insert
 
 
+	public static function update($params){
+
+		$conn = Connection::getConn();
+
+		$sql = "UPDATE postagem SET titulo = :titulo, conteudo = :conteudo WHERE id = :id";
+		$sql = $conn->prepare($sql);
+		$sql->bindvalue(':titulo', $params['titulo']);
+		$sql->bindValue(':conteudo', $params['conteudo']);
+		$sql->bindValue(':id', $params['id']);
+
+		$resultado = $sql->execute();
+
+		if($resultado == 0 ){
+			throw new Exception("Erro ao alterar publicação");
+		}
+
+		return true;
+	}
+
+
 }// Postagem
 
  ?>
