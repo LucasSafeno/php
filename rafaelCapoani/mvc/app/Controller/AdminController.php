@@ -27,7 +27,17 @@ class AdminController{
 	} //create
 
 	public function insert(){
-		var_dump($_POST);
+
+		try{
+			Postagem::insert($_POST);
+			echo '<script>alert("Publicação inserida com sucesso!");</script>';
+			echo '<script>location.href="http://localhost/php/rafaelCapoani/mvc/?pagina=admin&metodo=index"</script>>';
+		}catch(Exception $e){
+			echo '<script>alert("'.$e->getMessage().'");</script>';
+			echo '<script>location.href="http://localhost/php/rafaelCapoani/mvc/?pagina=admin&metodo=create"</script>>';
+		}
+		
+		
 
 	} //insert
 
