@@ -22,6 +22,30 @@ class Postagem{
 
 	}// Seleciona todos
 
+
+	public static function selecionaPorId($idPost){
+		$con = Connection::getConn();
+
+		$sql = "SELECT * FROM postagem WHERE id = :id";
+		$sql = $con->prepare($sql);
+		$sql->bindValue(':id', $idPost, PDO::PARAM_INT);
+		$sql->execute();
+
+		$resultado = $sql->fetchObject('Postagem');
+
+		if(!$resultado){
+			throw new Exception("Não foi encontrado nenhum registro!");
+		}else{
+			$resultado->comentarios = Comentarios::selecionarComentarios($resultado->id);
+
+			if(!$resultado->comentarios){
+				$resultado->comentario = 'Não existe nenhum comentário para essa postagem!';
+			}
+		}
+		return $resultado;
+
+	}//selecionaPorId
+
 }// Postagem
 
  ?>

@@ -18,7 +18,14 @@ class Core{
 			$controller = 'ErroController';
 		}
 
-		call_user_func(array(new $controller, $acao), array());
+		if(isset($urlGet['id']) && $urlGet['id'] != null){
+			$id = $urlGet['id'];
+		}else{
+			$id = null;
+		}
+
+
+		call_user_func(array(new $controller, $acao,), $id);
 
 
 	}// Start
