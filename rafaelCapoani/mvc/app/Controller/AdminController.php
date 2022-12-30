@@ -77,6 +77,25 @@ class AdminController{
 	}//update
 
 
+	public function delete($paramId){
+
+		try{
+
+			Postagem::delete($paramId);
+
+			echo '<script>alert("Publicação Excluida com sucesso!");</script>';
+			echo '<script>location.href="http://localhost/php/rafaelCapoani/mvc/?pagina=admin&metodo=index"</script>>';
+		}catch(Exception $e){
+
+			echo '<script>alert("'.$e->getMessage().'");</script>';
+			echo '<script>location.href="http://localhost/php/rafaelCapoani/mvc/?pagina=admin&metodo=change&id='.$_POST['id'].'"</script>>';
+		}
+
+			
+		
+	}
+
+
 }// AdminController
 
 

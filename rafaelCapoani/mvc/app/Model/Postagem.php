@@ -88,10 +88,31 @@ class Postagem{
 
 		if($resultado == 0 ){
 			throw new Exception("Erro ao alterar publicação");
+
+			return false;
 		}
 
 		return true;
 	}
+
+	public static function delete($id){
+		$conn = Connection::getConn();
+
+
+		$sql = "DELETE FROM postagem WHERE id = :id";
+		$sql = $conn->prepare($sql);
+		$sql->bindValue(':id', $id);
+		$resultado = $sql->execute();
+
+		if($resultado == 0 ){
+			throw new Exception("Erro ao excluir publicação");
+
+			return false;
+		}
+
+		return true;
+	}
+
 
 
 }// Postagem
