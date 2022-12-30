@@ -7,7 +7,11 @@ class AdminController{
 			$twig = new \Twig\Environment($loader);
 			$template = $twig->load('admin.html');
 
+
+			$objPostagens = Postagem::selecionaTodos();
+
 			$parametros = array();
+			$parametros['postagens'] = $objPostagens;
 
 			$conteudo = $template->render($parametros);
 			echo $conteudo;
@@ -21,6 +25,7 @@ class AdminController{
 			$template = $twig->load('create.html');
 
 			$parametros = array();
+		
 
 			$conteudo = $template->render($parametros);
 			echo $conteudo;
@@ -37,8 +42,6 @@ class AdminController{
 			echo '<script>location.href="http://localhost/php/rafaelCapoani/mvc/?pagina=admin&metodo=create"</script>>';
 		}
 		
-		
-
 	} //insert
 
 
