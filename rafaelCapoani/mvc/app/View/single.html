@@ -8,6 +8,22 @@
 						<p>
 							{{conteudo}} 
 						</p>
+						<br>
+						<hr>
+						<br>
+						<h1>Comentários :</h1>
+
+						{% if comentarios == false %}
+							<p>Nenhum comentário encontrado para essa postagem </p>
+						{% else %}
+							{% for coment in comentarios %}
+								<h4>{{coment.nome}}</h4>
+								<p>
+									{{coment.mensagem}}
+								</p>
+							{% endfor %}
+						{% endif %}
+
 					</article>
 
 			
