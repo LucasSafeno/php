@@ -22,5 +22,5 @@ $dados = array(
     'endereço' => $pedido->cliente->endereco
 );
 
-var_dump($dados);
+var_dump($dados);   
 ?>
