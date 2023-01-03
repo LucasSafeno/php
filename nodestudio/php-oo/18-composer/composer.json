@@ -1,0 +1,18 @@
+{
+    "name": "lucastenorio/composer",
+    "description": "Teste composer",
+    "require": {
+        "dompdf/dompdf": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Lucastenorio\\Composer\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Lucas Safeno",
+            "email": "lugnorio@gmail.com"
+        }
+    ]
+}
