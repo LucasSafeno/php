@@ -1,0 +1,21 @@
+{
+    "name": "safeno/php-oo-profissional",
+    "authors": [
+        {
+            "name": "Lucas Safeno",
+            "email": "lugnorio@gmail.com"
+        }
+    ],
+    "require": {
+        "league/plates": "^3.5",
+        "symfony/var-dumper": "^6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "app\\":"app"
+        },
+        "files": [
+            
+        ]
+    }
+}
