@@ -1,6 +1,11 @@
 <?php
-$controller = new App\Controllers\Controller;
-$object = $controller->controller();
-$method = new App\Controllers\Method;
+$callController = new App\Controllers\Controller;
+$calledControler = $callController->controller();
 
-dump($method->method($object));
+$controller = new $calledControler();
+
+$callMethod = new App\Controllers\Method;
+$method = $callMethod->method($controller);
+
+
+$controller->$method();
