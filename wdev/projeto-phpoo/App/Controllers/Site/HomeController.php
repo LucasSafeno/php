@@ -5,7 +5,14 @@ use App\Controllers\BaseController;
 
 class HomeController extends BaseController{
     public function index(){
-        $this->twig;
+
+        $dados = [
+            'titulo' => 'Curso PHP OO | Loja Virtual',
+            'nome' => 'LucasSafeno'
+        ];
+
+        $template = $this->twig->load('site_home.html');
+        $template->display($dados);
     }
 }
 ?>
