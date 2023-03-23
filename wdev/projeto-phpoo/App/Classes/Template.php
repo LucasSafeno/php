@@ -4,11 +4,11 @@ namespace App\Classes;
 class Template{
 
     public function loader(){
-        return new \Twig_Loader_Filesystem(['../App/Views/Site', '../App/Views/Admin']);
+        return new \Twig\Loader\FilesystemLoader(['../App/Views/Site', '../App/Views/Admin']);
     }// loader
 
     public function init(){
-        $twig = new \Twig_Environment($this->loader(), [
+        $twig = new \Twig\Environment($this->loader(), [
             'debug' => true,
             //'cache' => '',
             'auto_reload' => true
