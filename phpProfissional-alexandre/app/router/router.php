@@ -16,8 +16,16 @@ function router(){
 
     $routes = routes();
 
-    $mathedUri = existsMatchUriInArrayRoutes($uri, $routes);
+    //$mathedUri = existsMatchUriInArrayRoutes($uri, $routes);
  
+    array_filter(
+        $routes,
+        function($value) use ($uri){
+            $regex = str_replace('/', '\/', ltrim($value, '/'));
+            return preg_match("/^$regex/", ltrim($uri)); 
+        },
+        ARRAY_FILTER_USE_KEY
+    );
 
 } //router
 
