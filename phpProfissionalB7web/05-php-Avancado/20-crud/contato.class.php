@@ -64,18 +64,12 @@ class Contato{
         }
     } // editar
 
-    public function excluir($email){
-        if($this->existeEmail($email)){
-            $sql = "DELETE FROM contatos WHERe email = :email";
-            $sql = $this->pdo->prepare($sql);
-            $sql->bindValue(":email", $email);
-            $sql->execute();
-
-            return true;
-        }else{ 
-            return false;
-        }
-    }// Email
+    public function excluir($id){
+        $sql = "DELETE FROM contatos WHERe id = :id";
+        $sql = $this->pdo->prepare($sql);
+        $sql->bindValue(":id", $id);
+        $sql->execute();
+        } // excluir
 
     private function existeEmail($email){
         $sql = "SELECT * FROM contatos WHERE email = :email";
