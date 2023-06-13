@@ -4,12 +4,12 @@ class Contato{
     private $pdo;
 
     public function __construct(){
-        $this->pdo = new PDO("mysql:dbname=crud_oo;host=localhost", "root", "root");
+        $this->pdo = new PDO("mysql:dbname=crud_oo;host=localhost", "root", "");
     } // construct
 
     public function adicionar($email, $nome = ''){
         // Verificar se o email existe
-        if($exiseEmail->($email == false)){
+        if($this->existeEmail($email) == false){
             $sql = "INSERT INTO contatos (nome, email) VALUES (:nome, :email)";
             $sql = $this->pdo->prepare($sql);
             $sql->bindValue(":nome", $nome);
@@ -47,11 +47,51 @@ class Contato{
         }else{
             return array();
         }
-    }
+    } // getAll
 
-    private function exiseEmail($email){
 
-    }
+   public function editar($nome, $email){
+        if($this->existeEmail($email)){
+            $sql = "UPDATE contatos SET nome = :nome WHERE email = :email";
+            $sql = $this->pdo->prepare($sql);
+            $sql->bindValue(":nome", $nome);
+            $sql->bindValue(":email", $email);
+            $sql->execute();
+
+            return true;
+        }else{
+            return false;
+        }
+    } // editar
+
+    public function excluir($email){
+        if($this->existeEmail($email)){
+            $sql = "DELETE FROM contatos WHERe email = :email";
+            $sql = $this->pdo->prepare($sql);
+            $sql->bindValue(":email", $email);
+            $sql->execute();
+
+            return true;
+        }else{ 
+            return false;
+        }
+    }// Email
+
+    private function existeEmail($email){
+        $sql = "SELECT * FROM contatos WHERE email = :email";
+        $sql = $this->pdo->prepare($sql);
+        $sql->bindValue(":email", $email);
+        $sql->execute();
+
+        if($sql->rowCount() > 0){
+            return true;
+        }else{
+            return false;
+        }
+    } // existeEmail
+
+ 
+
 
 
 }// Contato
