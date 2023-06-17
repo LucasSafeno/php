@@ -1,5 +1,5 @@
 <h1> Adicionar </h1>
-<form method="post">
+<form method="post" action="adicionar_submit.php">
     Nome : <br>
     <input type="text" name="nome"> <br> <br>
 
