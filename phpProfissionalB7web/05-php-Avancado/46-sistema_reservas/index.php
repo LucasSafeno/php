@@ -1,14 +1,16 @@
 <?php 
 require 'config.php';
-require 'classes/Carros.php';
 require 'classes/Reservas.php';
 
 $reservas  = new Reservas($pdo);
-$carros = new Carros($pdo);
 
 ?>
 
+
+
 <h1>Reservas</h1>
+<a href="reservar.php">Adicionar Reserva</a>
+<br> <br>
 <?php 
 
 $lista = $reservas->getReservas();
