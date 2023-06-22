@@ -22,3 +22,9 @@ foreach($lista as $item){
 }
 
 ?>
+
+
+<hr>
+<?php 
+require 'calendario.php'
+?>
