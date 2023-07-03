@@ -16,8 +16,14 @@ if(isset($_POST['titulo']) && !empty($_POST['titulo'])){
     $valor = addslashes($_POST['valor']);
     $descricao = addslashes($_POST['descricao']);
     $estado = addslashes($_POST['estado']);
+    if(isset($_FILES['fotos'])){
+        $fotos = $_FILES['fotos'];
+    }else{
+        $fotos = array();
+    }
+    
 
-    $a->editAnuncio($titulo, $categoria, $valor, $descricao, $estado, $_GET['id']);
+    $a->editAnuncio($titulo, $categoria, $valor, $descricao, $estado, $fotos, $_GET['id']);
     ?>
 
     <div class="alert alert-success">Produto <strong>editado</strong> com sucesso!</div>
@@ -76,6 +82,18 @@ if(isset($_POST['titulo']) && !empty($_POST['titulo'])){
                 <option value="2" <?php echo ($info['estado'] == '2') ? 'selected="selected"':''; ?> >Ótimo</option>
             </select>
         </div>
+
+
+        <div class="form-group">
+            <label for="add_fotos">Fotos do Anuncio</label>
+            <input type="file" name="fotos[]"  multiple id="fotos"> <br>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">Fotos do Anuncio</div>
+                <div class="panel-body"></div>
+            </div>
+        </div>
+
 
         <input type="submit" value="Salvar" class="btn btn-default">
 
