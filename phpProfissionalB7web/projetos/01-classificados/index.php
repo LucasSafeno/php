@@ -12,7 +12,7 @@ $p = 1;
 if(isset($_GET['p']) && !empty($_GET['p'])){
     $p = addslashes($_GET['p']);
 }
-$por_paginas = 3;
+$por_paginas = 2;
 $total_paginas = ceil($total_anuncios / $por_paginas);
 
 $anuncios = $a->getUltimosAnuncios($p,$por_paginas);

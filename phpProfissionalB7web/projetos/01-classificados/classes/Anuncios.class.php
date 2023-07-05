@@ -164,7 +164,7 @@ class Anuncios{
         $offset = ($page - 1) * $perPage;
 
         $array = array();
-        $sql = $pdo->prepare("SELECT *,(SELECT anuncio_imagens.url FROM anuncio_imagens WHERE anuncio_imagens.id_anuncio = anuncios.id) as url,(SELECT categorias.nome FROM categorias WHERE categorias.id = anuncios.id_categoria ) as categoria FROM anuncios ORDER BY id DESC LIMIT $offset,2");
+        $sql = $pdo->prepare("SELECT *,(SELECT anuncio_imagens.url FROM anuncio_imagens WHERE anuncio_imagens.id_anuncio = anuncios.id LIMIT 1) as url,(SELECT categorias.nome FROM categorias WHERE categorias.id = anuncios.id_categoria LIMIT 1 ) as categoria FROM anuncios ORDER BY id DESC LIMIT $offset,2");
         $sql->execute();
 
         
