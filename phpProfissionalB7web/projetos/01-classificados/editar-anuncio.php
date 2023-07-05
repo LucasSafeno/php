@@ -90,7 +90,14 @@ if(isset($_POST['titulo']) && !empty($_POST['titulo'])){
 
             <div class="panel panel-default">
                 <div class="panel-heading">Fotos do Anuncio</div>
-                <div class="panel-body"></div>
+                <div class="panel-body">
+                    <?php foreach($info['fotos'] as $foto ): ?>
+                        <div class="foto_item">
+                            <img src="assets/images/anuncios/<?php echo $foto['url']; ?>" border="0" class="img-thumbnail"> <br> <br>
+                            <a href="excluir_foto.php?id=<?php echo $foto['id']; ?>" class="btn btn-default">Excluir Imagem</a>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
             </div>
         </div>
 
