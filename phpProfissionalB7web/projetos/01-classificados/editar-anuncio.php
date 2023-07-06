@@ -30,9 +30,9 @@ if(isset($_POST['titulo']) && !empty($_POST['titulo'])){
 
 <?php
 }
-
     if(isset($_GET['id']) && !empty($_GET['id'])){
         $info = $a->getAnuncio($_GET['id']);
+      
     }else{
        ?>
     <script type="text/javascript">windo.location.href="meus-anuncios.php"</script>
@@ -91,12 +91,17 @@ if(isset($_POST['titulo']) && !empty($_POST['titulo'])){
             <div class="panel panel-default">
                 <div class="panel-heading">Fotos do Anuncio</div>
                 <div class="panel-body">
-                    <?php foreach($info['fotos'] as $foto ): ?>
+             <?php if(!isset($info['fotos']) && empty($info['fotos'])):?>
+                <div class="alert alert-warning">Não há fotos</div>
+                <?php else: ?>
+                    <?php  foreach($info['fotos'] as $foto ): ?>
                         <div class="foto_item">
                             <img src="assets/images/anuncios/<?php echo $foto['url']; ?>" border="0" class="img-thumbnail"> <br> <br>
                             <a href="excluir_foto.php?id=<?php echo $foto['id']; ?>" class="btn btn-default">Excluir Imagem</a>
                         </div>
+                    
                     <?php endforeach; ?>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
