@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /php/phpProfissionalB7web/06-php-SuperAvancado/03-mvc/index.php?url=$1 [QSA,L]
