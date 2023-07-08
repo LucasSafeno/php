@@ -8,6 +8,8 @@ class Core{
             $url .= $_GET['url'];
         }
 
+        $params = array();
+
         if(!empty($url) && $url != '/'){
             $url = explode('/', $url);
             array_shift($url);
@@ -17,8 +19,13 @@ class Core{
 
             if(isset($url[0]) && $url != '/'){
                 $currentAction = $url[0];
+                array_shift($url);
             }else{
                 $currentAction = 'index';
+            }
+
+            if(count($url)){
+                $params = $url;
             }
 
             
@@ -27,10 +34,9 @@ class Core{
             $currentAction = 'index';
         }
 
-        echo "Controller :".$currentController;
-        echo "<br>";
-        echo "Action :".$currentAction;
+      $c = new $currentController();
 
+      call_user_func_array(array($c, $currentAction), $params);
 
     } // run
 
