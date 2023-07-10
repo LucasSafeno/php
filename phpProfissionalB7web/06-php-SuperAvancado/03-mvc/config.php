@@ -8,7 +8,7 @@ if(ENVIRONMENT == "development"){
     $config['dbname']   = 'estrutura_mvc';
     $config['host']     = 'localhost';
     $config['dbuser']   = 'root';
-    $config['dbpass']   = 'root';
+    $config['dbpass']   = '';
 }else{
     // config external server
     define("BASE_URL", "http://www.site.com.br/");

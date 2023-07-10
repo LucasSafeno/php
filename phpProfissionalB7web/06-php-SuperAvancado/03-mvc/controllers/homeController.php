@@ -3,12 +3,17 @@ class homeController extends Controller{
 
     public function index(){
 
+        // Models
+        $anuncios = new Anuncios();
+        $usuario = new Usuarios();
+
         // enviar dados
         $dados = array(
-            'quantidade' => 5,
-            'nome' => 'Lucas',
-            'idade' => 28
+            'quantidade' => $anuncios->getQuantidade(),
+            'nome' => $usuario->getNome(),
+            'idade' => $usuario->getIdade()
         );
+
 
 
         // Enviar informações para o view e exibe view
