@@ -1,13 +1,19 @@
 <?php 
-class homeController{
+class homeController extends Controller{
 
     public function index(){
-        echo 'Olá mundo';
-    } // index
 
-    public function teste(){
-        echo "Este é um teste";
-    }
+        // enviar dados
+        $dados = array(
+            'quantidade' => 5,
+            'nome' => 'Lucas',
+            'idade' => 28
+        );
+
+
+        // Enviar informações para o view e exibe view
+        $this->loadTemplate('home',$dados);
+    } // index
 
 }// homeController
 
