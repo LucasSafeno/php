@@ -1,0 +1,17 @@
+{
+    "require": {
+        "php": ">=7.0"
+    },
+    "autors":[
+        {
+            "name": "LucasSafeno",
+            "email": "lucastenorio.ti@gmail.com"
+        }
+    ],
+    "autoload":{
+        "psr-4":{
+            "App\\": "App/",
+            "MF\\": "vendor/MF/"
+        }
+    }
+}
