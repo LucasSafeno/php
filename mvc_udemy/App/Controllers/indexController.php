@@ -23,7 +23,7 @@ class IndexController extends Action{
     public function sobreNos(){
 
 
-        $info = Container::getModel('Info');
+        $info = Container::getModel('Info'); 
 
         $informacoes = $info->getInfo();
 

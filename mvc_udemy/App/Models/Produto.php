@@ -1,12 +1,9 @@
 <?php 
 namespace App\Models;
-class Produto{
 
-    protected $db;
+use MF\Model\Model;
 
-    public  function __construct(\PDO $db){
-        $this->db = $db;
-    } // construct
+class Produto extends Model{
 
     public function getProdutos(){
         $query = "SELECT id,descricao,preco FROM mvc.tb_produtos";
