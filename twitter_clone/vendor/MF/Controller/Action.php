@@ -11,8 +11,10 @@ abstract class Action{
     } // construct
 
     
-    protected function render($view, $layout){
+    protected function render($view, $layout = 'layout'){
+      
         $this->view->page = $view;
+
         if(file_exists("../App/Views/".$layout.".phtml")){
             require_once "../App/Views/".$layout.".phtml";
         }else{
