@@ -39,6 +39,7 @@ class Tweet extends Model{
                     LEFT JOIN  usuarios as u ON (t.id_usuario = u.id)
                 WHERE 
                     id_usuario = :id_usuario
+                    OR t.id_usuario in (SELECT id_usuario_seguindo FROm usuarios_seguidores WHERE id_usuario = :id_usuario)
                 ORDER BY
                     t.data DESC";
         $stmt = $this->db->prepare($query);

@@ -8,7 +8,7 @@ use MF\Model\Container;
 class AppController extends Action{
 
     public function timeline(){
-        session_start();
+        
         $this->validaAutenticao();
         
             // recuperar tweet
@@ -26,7 +26,7 @@ class AppController extends Action{
 
     public function tweet(){
 
-    session_start();
+    
     $this->validaAutenticao();
            
             $tweet = Container::getModel('Tweet');
