@@ -49,17 +49,17 @@ class AppController extends Action{
     } //validaAutenticao
 
     public function quemSeguir(){
-        $this->validaAutenticao();
-
         
+        $this->validaAutenticao();
 
         $pesquisarPor = isset($_GET['pesquisarPor']) ? $_GET['pesquisarPor'] : '';
 
-        $usuario = array();
+        $usuarios = array();
 
         if($pesquisarPor != ''){
             $usuario = Container::getModel('Usuario');
             $usuario->__set('nome', $pesquisarPor);
+            $usuario->__set('id', $_SESSION['id']);
             $usuarios = $usuario->getAll();
         }
 
@@ -67,6 +67,24 @@ class AppController extends Action{
         $this->render('quemSeguir');
 
     } // quemSeguir
+
+    public function acao(){
+        $this->validaAutenticao();
+
+        $acao = isset($_GET['acao']) ? $_GET['acao'] :  '';
+        $id_usuario_seguindo = isset($_GET['id_usuario']) ? $_GET['id_usuario'] :  '';
+
+        $usuario = Container::getModel('Usuario');
+        $usuario->__set('id', $_SESSION['id']);
+
+        if($acao == 'seguir'){
+            $usuario->seguirUsuario($id_usuario_seguindo);
+        }else if($acao = 'deixar_de_seguir'){
+            $usuario->deixarDeSeguir($id_usuario_seguindo);
+        }
+
+        header("Location: /quem_seguir");
+    }
 
 }// AppController
 ?>
