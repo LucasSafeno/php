@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,400;0,600;0,700;0,800;1,400;1,700&display=swap');
+
+/* Geral */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter',sans-serif;
+    outline: none;
+}
+img{
+    max-width: 100%;
+}
+
+body{
+    background: linear-gradient(90deg, #ccc, #eee);
+}
+
+/* Header */
+
+header{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #313132;
+    box-shadow: 0px 5px 15px black;
+    padding: .5rem 3rem;
+}
+
+#logo-header h1{
+    color: white;
+    font-weight: bold;
+    position: relative;
+}
+
+#logo-header h1::before{
+    position: absolute;
+    content: '';
+    width: 60%;
+    background-color: rgba(00,255 ,0, 0.5);
+    height: 3px;
+    bottom: 1px;
+    border-radius: 4px;   
+}
+
+#menu-header ul{
+    display: flex;
+    list-style: none;
+}
+
+#menu-header ul li{
+    margin: 0 25px;
+}
+
+#menu-header ul li a{
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: .4s;
+    padding: 1rem
+}
+
+
+#menu-header ul li a:hover{
+    color: black;
+}
+
+#entrar-header a{
+    text-decoration: none;
+    color: white;
+}
+
+#entrar-header button{
+    border: none;
+    background: rgba(00,255 ,0, 0.5);
+    padding: .9rem 1.8rem;
+    
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#entrar-header button:hover{
+    background: rgb(0, 255, 0);
+    font-weight: bold;
+}
+.menu-drop{
+    background-color: red;
+    position: relative;
+}
+.ul-drop{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+}
+
+.ul-drop ul li a {
+    background-color: green;
+    margin-top: 50px;
+}
+.ul-drop li{
+    margin-top: 15px;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
