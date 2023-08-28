@@ -13,8 +13,7 @@ require "vendor/autoload.php";
 
     <!-- CSS !-->
     <link rel="stylesheet" href="assets/css/style.css">
-    <!-- JavaScript !-->
-    <script src="assets/js/script.js" defar></script>
+ 
 </head>
 <body>
 
@@ -29,17 +28,20 @@ require "vendor/autoload.php";
                 <a href="/">Inicio</a>
             </li>
 
-            <li>
+            <li onmouseenter="showMenu()" onmouseleave="hideMenu()" >
                 <a href="#" class="menu-drop">Links</a>
+               
+                <div class="menu-dropdown">
                 <ul class="ul-drop">
                     <li>
-                        <a href="#">Teste</a>
+                        <a href="https://rastreamento.correios.com.br/app/index.php" target="_blank">Rastreio Correios</a>
                     </li>
 
                     <li>
-                        <a href="#">Teste 2</a>
+                        <a href="https://www.braspress.com/acesso-rapido/pedido-de-coleta/" target="_blank">Coleta Braspress</a>
                     </li>
                 </ul> <!-- Dropdown !-->
+                </div>
             </li>
 
             <li>

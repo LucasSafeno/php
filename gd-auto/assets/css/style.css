@@ -7,6 +7,7 @@
     box-sizing: border-box;
     font-family: 'Inter',sans-serif;
     outline: none;
+
 }
 img{
     max-width: 100%;
@@ -65,6 +66,7 @@ header{
 
 #menu-header ul li a:hover{
     color: black;
+    transition: 0.8s;
 }
 
 #entrar-header a{
@@ -80,28 +82,35 @@ header{
     border-radius: 8px;
     cursor: pointer;
 }
-
+.submenu{
+    position: relative;
+}
 #entrar-header button:hover{
     background: rgb(0, 255, 0);
     font-weight: bold;
 }
-.menu-drop{
-    background-color: red;
-    position: relative;
-}
-.ul-drop{
-    position: absolute;
-    display: flex;
-    flex-direction: column;
+.menu-dropdown{
+    display: none;
 }
 
-.ul-drop ul li a {
-    background-color: green;
-    margin-top: 50px;
-}
-.ul-drop li{
+
+.ul-drop{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    background-color: #313132;
     margin-top: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 5px 15px black;
+    position: absolute;
+    transition: 0.8s;
 }
+
+.ul-drop li{
+    padding: 5px;
+    
+}
+
 
 .container{
     width: 100%;
@@ -109,4 +118,9 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+.open{
+    display: none;
 }
