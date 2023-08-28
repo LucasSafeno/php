@@ -30,7 +30,7 @@
                     $dados = $u->verificaLogin();
                     $_SESSION['id'] = $dados['id'];
 
-                    header("Location: home.php");
+                    header("Location: home.php?id=".$_SESSION['id']);
                 }else{ ?>
                     <div class="warning">
                         <p>
