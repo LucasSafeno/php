@@ -1,6 +1,9 @@
 <?php
 session_start();
 require "vendor/autoload.php";
+
+use App\Connection;
+$conn = new Connection;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,6 +43,12 @@ require "vendor/autoload.php";
                     <li>
                         <a href="https://www.braspress.com/acesso-rapido/pedido-de-coleta/" target="_blank">Coleta Braspress</a>
                     </li>
+                    <li>
+                        <a href="#" target="_blank">Coleta Correios</a>
+                    </li>
+                    <li>
+                        <a href="https://buscacepinter.correios.com.br/app/endereco/index.php" target="_blank">Busca CEP</a>
+                    </li>
                 </ul> <!-- Dropdown !-->
                 </div>
             </li>
@@ -52,9 +61,11 @@ require "vendor/autoload.php";
 
 
     <div id="entrar-header">
-        <button type="submit">
-            <a href="login.php">Entrar</a>
-        </button>
+        <?php if(!isset($_SESSION['id'])){ ?>
+            <a href="login.php">Entrar</a>   
+        <?php } else{?>
+            <a class="sair" href="sair.php">Sair </a>
+        <?php }?>
     </div>
 
 
