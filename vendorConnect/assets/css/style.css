@@ -174,7 +174,7 @@ header{
     flex-direction: column;
 }
 
-.btn{
+#form_login .btn{
     width: 100%;
     border: none;
     background-color: rgba(00,255 ,0, 0.5);
@@ -182,7 +182,7 @@ header{
     color: white;
     font-weight: bold;
 }
-.btn:hover{
+#form_login .btn:hover{
     background: rgb(0, 255, 0);
 }
 
@@ -257,4 +257,17 @@ header{
 }
 #formulario_cadastro label{
     font-weight: bold;
+}
+
+
+.btn{
+    width: 100%;
+    border: none;
+    background-color: rgba(00,255 ,0, 0.5);
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+.btn:hover{
+    background: rgb(0, 255, 0);
 }
