@@ -24,6 +24,29 @@ if(!isset($_SESSION['id'])){
         </div>
     </section>
 
+<?php 
+        $cep = "54100290";
+
+        
+        $url  =  'viacep.com.br/ws/'.$cep.'/json/';
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+
+        curl_exec($ch);
+
+
+        $info = file_get_contents("https://".$url);
+
+        $cidade = json_decode($info, true);
+
+       
+        
+        
+        
+
+?>
+
 </div>
 
 <?php include_once 'pages/footer.php' ?>
