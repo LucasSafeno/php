@@ -6,9 +6,24 @@ if(!isset($_SESSION['id'])){
 ?>
 
 <div class="container">
+    <section id="cadastrar-container">
+        <div class="icon">
+            <i class="fa-solid fa-plus"></i>
+        </div>
+        <div class="cadastrar-title">
+        <a href="cadastrar.php">Cadastrar Fornecedor</a>
+        </div>
+    </section>
 
+    <section id="editar-container">
+        <div class="icon">
+            <i class="fa-solid fa-pen-to-square"></i>
+        </div>
+        <div class="editar-title">
+            <a href="editar.php">Editar Fornecedor</a>
+        </div>
+    </section>
 
-    <h1>Opções</h1>
 </div>
 
 <?php include_once 'pages/footer.php' ?>

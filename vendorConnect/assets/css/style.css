@@ -172,10 +172,9 @@ header{
 #form_login form .form-control{
     display: flex;
     flex-direction: column;
-
 }
 
-#form_login .btn{
+.btn{
     width: 100%;
     border: none;
     background-color: rgba(00,255 ,0, 0.5);
@@ -183,8 +182,7 @@ header{
     color: white;
     font-weight: bold;
 }
-
-#form_login .btn:hover{
+.btn:hover{
     background: rgb(0, 255, 0);
 }
 
@@ -196,3 +194,67 @@ header{
     text-align: center;    
 }
 
+
+#cadastrar-container,#editar-container{
+    width: max-content;
+    height: max-content;
+    border: 1px solid black;
+    padding: 3rem;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+
+}
+#cadastrar-container i, #editar-container i{
+    margin: 10px 0;
+    font-size: 2rem;
+}
+
+
+#cadastrar-container a, #editar-container a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+#cadastrar-container a:hover, #editar-container a:hover{
+    color: white;
+}
+
+.formulario-container{
+    position: relative;
+    top: 50px;
+    padding: 2rem;
+    background-color: #313132;
+    color: white;
+    width: max-content;
+    height: max-content;
+}
+
+.formulario-container h1{
+    text-align: center;
+}
+
+#formulario_cadastro{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+#formulario_cadastro  .form-control{
+    display: flex;
+    flex-direction: column;
+}
+
+#formulario_cadastro input{
+    width:350px;
+    height: 35px;
+}
+#formulario_cadastro label{
+    font-weight: bold;
+}

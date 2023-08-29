@@ -1,5 +1,13 @@
 <?php include_once 'pages/header.php'; ?>
 
+<?php 
+
+if(isset($_SESSION['id'])){
+    header("Location: home.php");
+}
+
+?>
+
 <div class="container">
 
    <section id="info">
