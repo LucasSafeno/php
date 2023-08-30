@@ -66,9 +66,8 @@ if(!isset($_SESSION['id'])){
             <div class="form-control">
                 <input class="btn" type="submit" value="Cadastrar">
             </div>
-
-
         </form>
+
     </div>
 
 </div>
