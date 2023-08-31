@@ -24,27 +24,6 @@ if(!isset($_SESSION['id'])){
         </div>
     </section>
 
-<<<<<<< HEAD
-    <?php 
-        $curl = curl_init();
-
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => 'https://viacep.com.br/ws/54100290/json/',
-            CURLOPT_RETURNTRANSFER => true,
-        ));
-        
-        $response = curl_exec($curl);
-        
-       // print_r(json_decode($response, true));
-       $dados = json_decode($response, true);
-
-       
-    
-    
-    ?>
-
-=======
->>>>>>> 22cf11685afb116c864134233c087987412ce506
 </div>
 
 <?php include_once 'pages/footer.php' ?>
