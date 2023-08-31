@@ -24,28 +24,23 @@ if(!isset($_SESSION['id'])){
         </div>
     </section>
 
-<?php 
-        $cep = "54100290";
+    <?php 
+        $curl = curl_init();
 
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://viacep.com.br/ws/54100290/json/',
+            CURLOPT_RETURNTRANSFER => true,
+        ));
         
-        $url  =  'viacep.com.br/ws/'.$cep.'/json/';
-
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-
-        curl_exec($ch);
-
-
-        $info = file_get_contents("https://".$url);
-
-        $cidade = json_decode($info, true);
+        $response = curl_exec($curl);
+        
+       // print_r(json_decode($response, true));
+       $dados = json_decode($response, true);
 
        
-        
-        
-        
-
-?>
+    
+    
+    ?>
 
 </div>
 
