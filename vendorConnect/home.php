@@ -24,6 +24,7 @@ if(!isset($_SESSION['id'])){
         </div>
     </section>
 
+<<<<<<< HEAD
     <?php 
         $curl = curl_init();
 
@@ -42,6 +43,8 @@ if(!isset($_SESSION['id'])){
     
     ?>
 
+=======
+>>>>>>> 22cf11685afb116c864134233c087987412ce506
 </div>
 
 <?php include_once 'pages/footer.php' ?>
