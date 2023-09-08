@@ -1,6 +1,7 @@
 <?php 
-class ContaCorrente extends Conta{  
+final class ContaCorrente extends Conta{  
     var $limite;
+    var $taxaTransferencia = 2.5;
 
     /**
      * constuct sobreescrito
@@ -33,6 +34,20 @@ class ContaCorrente extends Conta{
         // retirada permitida
         return true;
       }
+
+      /**
+       * final function transferir
+       */
+
+       final function transferir($conta, $valor){
+            if($this->retirar($valor)){
+                $conta->depositar($valor);
+            }
+
+            if($this->titular != $conta->titular){
+                $this->retirar($this->taxaTransferencia);
+            }
+       }
 
 } //ContaCorrente
 

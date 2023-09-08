@@ -1,5 +1,5 @@
 <?php 
-class ContaPoupanca extends Conta{
+final class ContaPoupanca extends Conta{
     var $aniversario;
 
     /**
@@ -29,6 +29,15 @@ class ContaPoupanca extends Conta{
         // retirada permitida
         return true;
       }
+      /**
+       * Abstract funcion transferir($conta,valor)
+       */
+
+       function transferir($conta, $valor){
+        if($this->retirar($valor)){
+            $conta->depositar($valor);
+        }
+       }
 
 } // ContaPoupanca
 ?>

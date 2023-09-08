@@ -1,5 +1,5 @@
 <?php 
-class Conta{
+abstract class Conta{
     var $agencia;
     var $codigo;
     var $dataCriacao;
@@ -38,6 +38,10 @@ class Conta{
           function obterSaldo(){
             return $this->saldo;
           }
+          /**
+           * Abstract metodo
+           */
+          abstract function transferir($conta, $valor);
 
           /**
            * Construct

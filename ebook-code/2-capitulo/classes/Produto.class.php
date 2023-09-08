@@ -5,6 +5,7 @@ class Produto{
     var $descricao;
     var $preco;
     var $quantidade;
+    var $fornecedor;
 
 
     function imprimeEtiqueta(){
