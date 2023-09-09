@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<paises>
+    <nome>Brasil</nome>
+    <idioma>Português</idioma>
+    <religiao>Catolica</religiao>
+    <moeda> Real (R$)</moeda>
+    <populacao>190 milhões</populacao>
+</paises>
