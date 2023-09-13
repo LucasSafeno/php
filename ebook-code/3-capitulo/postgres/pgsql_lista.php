@@ -1,9 +1,9 @@
 <?php 
 // Abre conexão com Postgres
-$conn = pg_connect("host=localhost port=5432 dbname=livro user=postgres password=root");
+$conn = pg_connect("host=localhost port=5432 dbname=livros user=postgres password=root");
 
 // define consulta que será realizada
-$query = "SELECT codigo,nome FROM livro";
+$query = "SELECT codigo,nome FROM famoso";
 
 //envia consulta para banco de dados
 
