@@ -12,6 +12,12 @@ require_once 'TExpression.class.php';
     private $operators; // armazena operadores
     private $properties; // propriedades do criterio
 
+    const AND_OPERATOR = ' AND ';
+    const OR_OPERATOR = ' OR ';
+
+    private $defaultOperator = self::AND_OPERATOR;
+
+
     /**
      * método add()
      * adiciona uma expressão ao criterio
@@ -22,8 +28,8 @@ require_once 'TExpression.class.php';
 
      public function add(TExpression $expression, $operator = self::AND_OPERATOR){
         // na primeira vez, precisamos do operador lógico para concatenar
-        if(empty($this->expressions)){
-            unset($operator);
+        if($operator == null){
+            $operator = $this->defaultOperator;
         }
 
         // agrega o resultado da expressão à lista de operações

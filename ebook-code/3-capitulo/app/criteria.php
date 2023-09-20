@@ -7,8 +7,8 @@ include_once "ado/TFilter.class.php";
 // exemplo criteria usando o OR
 // a idade deve ser menor que 16 OU maior que 60
 $criteria = new TCriteria();
-$criteria->add(new TFilter('idade', '<', '16', TExpression::OR_OPERATOR));
-$criteria->add(new TFilter('idade', '>', '60', TExpression::OR_OPERATOR));
+$criteria->add(new TFilter('idade', '<', '16'), TExpression::OR_OPERATOR);
+$criteria->add(new TFilter('idade', '>', '60'), TExpression::OR_OPERATOR);
 
 echo $criteria->dump();
 echo "<br>";
