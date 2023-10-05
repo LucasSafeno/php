@@ -15,13 +15,23 @@ function routes():array{
 
 function exactMatchUriInArrayRoutes($uri, $routes){
     if(array_key_exists($uri, $routes)){
-        return [];
+        return [$uri => $routes[$uri]];
     }
 
     return [];
     
 } //exactMatchUriInArrayRoutes
 
+function regularExprionMathArrayRoutes($uri, $routes){
+    $mathedUri =  array_filter(
+        ($routes),
+         function($value) use($uri){
+             $regex = str_replace('/', '\/',ltrim($value,'/'));
+             return preg_match("/^$regex$/", ltrim($uri, '/'));
+         },
+         ARRAY_FILTER_USE_KEY
+     );
+}
 
 /**
  * router
@@ -36,6 +46,11 @@ function router(){
 
     $mathedUri = exactMatchUriInArrayRoutes($uri, $routes);
 
+    if(empty($mathedUri)){
+        $mathedUri = regularExprionMathArrayRoutes($uri, $routes);
+    }
+
+    var_dump($mathedUri);
   
 } //router
 
