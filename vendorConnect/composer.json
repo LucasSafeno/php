@@ -1,8 +1,0 @@
-{
-    "author": "LucasSafeno",
-    "autoload":{
-        "psr-4":{
-            "App\\": "classes/"
-        }
-    }
-}
