@@ -1,14 +1,24 @@
 <?php 
 require "vendor/autoload.php";
 
+
+use App\Http\Router;
+use App\Http\Response;
 use App\Controller\Pages\Home;
 
-$objRequest = new \App\Http\Request;
-$objResponse = new \App\Http\Response(200, 'Olá mundo');
+define('URL','http://localhost/php/wdev');
 
+$obRoute = new Router('URL');
 
-$objResponse->sendResponse();
-exit;
-echo Home::getHome();
+// Rota home
+$obRoute->get('/', [
+    function(){
+        return new Response(200, Home::getHome());
+    }
+]);
+
+// Imprime o response da rota
+$obRoute->run()
+        ->sendResponse();
 
 ?>
