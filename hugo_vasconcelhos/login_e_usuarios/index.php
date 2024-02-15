@@ -9,7 +9,7 @@ $senha = 123;
 $senha_crip = md5($senha);
 
 if($linhas == 0){
-  $query = $pdo->query("INSERT INTO usuarios SET nome = '$nome_sistema', email = '$email_sistema', senha = '$senha', senha_crip = '$senha_crip', nivel = 'Administrador', ativo = 'Sim'  ");
+  $query = $pdo->query("INSERT INTO usuarios SET nome = '$nome_sistema', email = '$email_sistema', senha = '$senha', senha_crip = '$senha_crip', nivel = 'Administrador', ativo = 'Sim', foto = 'sem-foto.jpg', telefone = '$telefone_sistema'  ");
 }
 
 ?>
@@ -27,8 +27,8 @@ if($linhas == 0){
     <div class="form">
       <img src="img/logo.png" class="imagem">
       <form method="POST" action="autenticar.php">
-        <input type="email" name="usuario" placeholder="Email">
-        <input type="password" name="senha" placeholder="Senha">
+        <input type="email" name="usuario" placeholder="Email" required>
+        <input type="password" name="senha" placeholder="Senha" required>
 
         <button>Login</button>
       </form>

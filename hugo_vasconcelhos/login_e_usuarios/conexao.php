@@ -21,6 +21,7 @@ try{
 # Variaveis Globais
 $nome_sistema = "Nome Sistema";
 $email_sistema = "lucas@email.com";
+$telefone_sistema = "00000000000";
 
 
 
