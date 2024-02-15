@@ -37,6 +37,7 @@ if($total_reg == 0){
 
   <!-- Custom CSS !-->
   <link rel="stylesheet" type="text/css" href="css/login.css">
+  <link rel="icon" type="image/png" href="img/icone.png">
 </head>
 
 <body>

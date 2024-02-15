@@ -5,5 +5,6 @@ $(document).ready(function () {
     $('#cnpj').mask('00.000.000/0000-00');
 
     $('#telefone_perfil').mask('(00) 00000-0000');
+    $('#telefone_sistema').mask('(00) 00000-0000');
 	$('#cpf_perfil').mask('000.000.000-00');
 });

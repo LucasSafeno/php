@@ -1,6 +1,6 @@
 <?php 
 require_once("../conexao.php");
-require_once("verificar.php");
+
 
 
 if(@$_GET['pagina'] != ""){
@@ -10,18 +10,31 @@ if(@$_GET['pagina'] != ""){
 }
 
 
-// trazer dados do usuario logado
+  // Criar uma config caso não haja
 
+$query = $pdo->query("SELECT * FROM config WHERE empresa = 0");
+$res = $query->fetchAll(PDO::FETCH_ASSOC);
+$total_reg = count($res);
+
+if($total_reg == 0){
+  $pdo->query("INSERT INTO config SET empresa = '0', nome_sistema = 'Sistema de vendas', tipo_rel = 'PDF' ");
+}else{
+	$nome_sistema = $res[0]['nome_sistema'];
+	$email_sistema = $res[0]['email_sistema'];
+	$telefone_sistema = $res[0]['telefone_sistema'];
+	$tipo_rel = $res[0]['tipo_rel'];
+
+}
 
 
 ?>
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>Nome Sistema</title>
+	<title><?= $nome_sistema;  ?></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="shortcut icon" href="" type="image/x-icon">
+	<link rel="shortcut icon" href="../img/icone.png" type="image/x-icon">
 
 	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 
@@ -108,7 +121,7 @@ if(@$_GET['pagina'] != ""){
 	</script>
 	<!-- //pie-chart --><!-- index page sales reviews visitors pie chart -->
 
-	
+	<?php require_once("verificar.php"); ?>
 </head> 
 <body class="cbp-spmenu-push">
 	<div class="main-content" id="conteudo-principal" style="display: none;">
@@ -123,7 +136,7 @@ if(@$_GET['pagina'] != ""){
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<h1><a class="navbar-brand" href="index.php"><span class="fa fa-cutlery"></span> Sistema SAS<span class="dashboard_text">Sistema de Vendas</span></a></h1>
+						<h1><a class="navbar-brand" href="index.php"><span class="fa fa-usd"></span> Sistema SAS<span class="dashboard_text"><?= $nome_sistema?></span></a></h1>
 					</div>
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="sidebar-menu">
@@ -442,8 +455,8 @@ if(@$_GET['pagina'] != ""){
 
 					<div class="row">
 						<div class="col-md-3">							
-								<label>Nome do Projeto</label>
-								<input type="text" class="form-control" id="nome_sistema" name="nome_sistema" placeholder="Delivery Interativo" value="<?php echo @$nome_sistema ?>" required>							
+								<label>Nome do Sistema</label>
+								<input type="text" class="form-control" id="nome_sistema" name="nome_sistema" placeholder="" value="<?php echo @$nome_sistema ?>" required>							
 						</div>
 
 						<div class="col-md-3">							
@@ -457,10 +470,7 @@ if(@$_GET['pagina'] != ""){
 								<input type="text" class="form-control" id="telefone_sistema" name="telefone_sistema" placeholder="Telefone do Sistema" value="<?php echo @$telefone_sistema ?>" required>							
 						</div>
 
-						<div class="col-md-3">							
-								<label>Telefone Fixo</label>
-								<input type="text" class="form-control" id="telefone_fixo" name="telefone_fixo" placeholder="Telefone Fixo" value="<?php echo @$telefone_fixo ?>" >							
-						</div>
+					
 					</div>
 
 
@@ -470,16 +480,7 @@ if(@$_GET['pagina'] != ""){
 								<input type="text" class="form-control" id="endereco_sistema" name="endereco_sistema" placeholder="Rua X..." value="<?php echo @$endereco_sistema ?>" >							
 						</div>
 
-						<div class="col-md-6">							
-								<label>Instagram</label>
-								<input type="text" class="form-control" id="instagram_sistema" name="instagram_sistema" placeholder="Link do Instagram" value="<?php echo @$instagram_sistema ?>">							
-						</div>
-					</div>
-
-
-
-					<div class="row">
-						<div class="col-md-3">							
+							<div class="col-md-3">							
 								<label>Tipo Relatório</label>
 								<select class="form-control" name="tipo_rel">
 									<option value="PDF" <?php if(@$tipo_rel == 'PDF'){?> selected <?php } ?> >PDF</option>
@@ -487,12 +488,8 @@ if(@$_GET['pagina'] != ""){
 								</select>							
 						</div>
 
-						
-
-					</div>
-
-
 					
+					</div>
 
 					
 
@@ -503,9 +500,9 @@ if(@$_GET['pagina'] != ""){
 									<input class="form-control" type="file" name="foto-logo" onChange="carregarImgLogo();" id="foto-logo">
 								</div>						
 							</div>
-							<div class="col-md-2">
+							<div class="col-md-2" style="background: #DBDB08;">
 								<div id="divImg">
-									<img src="../../img/<?php echo $logo_sistema ?>"  width="80px" id="target-logo">									
+									<img src="../img/logo.png"  width="80px" id="target-logo">									
 								</div>
 							</div>
 
@@ -518,7 +515,7 @@ if(@$_GET['pagina'] != ""){
 							</div>
 							<div class="col-md-2">
 								<div id="divImg">
-									<img src="../../img/<?php echo $favicon_sistema ?>"  width="50px" id="target-icone">									
+									<img src="../img/icone.png"  width="50px" id="target-icone">		
 								</div>
 							</div>
 
@@ -537,7 +534,7 @@ if(@$_GET['pagina'] != ""){
 							</div>
 							<div class="col-md-2">
 								<div id="divImg">
-									<img src="../../img/<?php echo @$logo_rel ?>"  width="80px" id="target-logo-rel">									
+									<img src="../img/logo-rel.jpg"  width="80px" id="target-logo-rel">									
 								</div>
 							</div>
 
