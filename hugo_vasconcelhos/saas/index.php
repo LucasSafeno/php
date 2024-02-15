@@ -11,7 +11,7 @@ $res = $query->fetchAll(PDO::FETCH_ASSOC);
 $total_reg = count($res);
 
 if($total_reg == 0){
-  $pdo->query("INSERT INTO usuarios SET empresa = '0', nome = 'Administrador Sas', cpf = '000.000.000-00', email = 'contato@atual.tech', senha = '$senha', senha_crip = '$senha_crip', ativo = 'Sim', foto = 'sem-foto.jpg', nivel = 'SAS'   ");
+  $pdo->query("INSERT INTO usuarios SET empresa = '0', nome = 'Administrador Sas', cpf = '000.000.000-00', email = 'contato@atual.tech', senha = '$senha', senha_crip = '$senha_crip', ativo = 'Sim', foto = 'sem-foto.jpg', nivel = 'SAS', data = curDate()   ");
 }
 
 

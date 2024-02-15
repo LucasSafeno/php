@@ -358,7 +358,7 @@ if(@$_GET['pagina'] != ""){
 					<div class="row">
 						<div class="col-md-6">							
 								<label>Telefone</label>
-								<input type="text" class="form-control" id="telefone_perfil" name="telefone" placeholder="Seu Telefone" value="<?php echo $telefone_usuario ?>" required>							
+								<input type="text" class="form-control" id="telefone_perfil" name="telefone" placeholder="Seu Telefone" value="<?php echo $telefone_usuario ?>" >							
 						</div>
 
 						<div class="col-md-6">							
@@ -372,19 +372,19 @@ if(@$_GET['pagina'] != ""){
 					<div class="row">
 						<div class="col-md-6">							
 								<label>Senha</label>
-								<input type="password" class="form-control" id="senha_perfil" name="senha" placeholder="Senha" value="<?php echo $senha_usuario ?>" >							
+								<input type="password" class="form-control" id="senha_perfil" name="senha" placeholder="Senha" value="<?php echo $senha_usuario ?>" required>							
 						</div>
 
 						<div class="col-md-6">							
 								<label>Confirmar Senha</label>
-								<input type="password" class="form-control" id="conf_senha_perfil" name="conf_senha" placeholder="Confirmar Senha" value="" >							
+								<input type="password" class="form-control" id="conf_senha_perfil" name="conf_senha" placeholder="Confirmar Senha" value="" required>							
 						</div>
 					</div>
 
 						<div class="row">
-						<div class="col-md-6">							
+						<div class="col-md-12">							
 								<label>Endereço</label>
-								<input type="password" class="form-control" id="endereco_perfil" name="senha" placeholder="Endereço" value="<?php echo $endereco_usuario ?>" >							
+								<input type="text" class="form-control" id="endereco_perfil" name="endereco" placeholder="Endereço" value="<?php echo $endereco_usuario ?>" >							
 						</div>
 
 					</div>
@@ -405,7 +405,7 @@ if(@$_GET['pagina'] != ""){
 					</div>
 
 
-					<input type="hidden" name="id_usuario" value="<?php echo $id_usuario ?>">
+					<input type="hidden" name="id_usuario" id="id_usuario" value="<?php echo $id_usuario ?>">
 				
 
 				<br>
@@ -604,7 +604,8 @@ if(@$_GET['pagina'] != ""){
 				if (mensagem.trim() == "Editado com Sucesso") {
 
 					$('#btn-fechar-perfil').click();
-					//location.reload();				
+					location.reload();
+					carregarDados();				
 						
 
 				} else {
@@ -761,7 +762,7 @@ if(@$_GET['pagina'] != ""){
 				$('#telefone_perfil').val(split[5]);
 				$('#senha_perfil').val(split[6]);
 				$('#endereco_perfil').val(split[7]);
-				$('#id_perfil').val(id_usu);
+				$('#id_usuario').val(id_usu);
 				},
 			});
 	}
