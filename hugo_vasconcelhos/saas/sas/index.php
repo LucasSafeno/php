@@ -604,7 +604,7 @@ if(@$_GET['pagina'] != ""){
 				if (mensagem.trim() == "Editado com Sucesso") {
 
 					$('#btn-fechar-perfil').click();
-					location.reload();				
+					//location.reload();				
 						
 
 				} else {
@@ -761,6 +761,7 @@ if(@$_GET['pagina'] != ""){
 				$('#telefone_perfil').val(split[5]);
 				$('#senha_perfil').val(split[6]);
 				$('#endereco_perfil').val(split[7]);
+				$('#id_perfil').val(id_usu);
 				},
 			});
 	}
