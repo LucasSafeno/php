@@ -314,7 +314,7 @@ if(@$_GET['pagina'] != ""){
 
 
 	<!-- Mascaras JS -->
-<script type="text/javascript" src="../js/mascaras.js"></script>
+<script type="text/javascript" src="js/mascaras.js"></script>
 
 <!-- Ajax para funcionar Mascaras JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script> 
@@ -372,13 +372,21 @@ if(@$_GET['pagina'] != ""){
 					<div class="row">
 						<div class="col-md-6">							
 								<label>Senha</label>
-								<input type="password" class="form-control" id="senha_perfil" name="senha" placeholder="Senha" value="<?php echo $senha_usuario ?>" required>							
+								<input type="password" class="form-control" id="senha_perfil" name="senha" placeholder="Senha" value="<?php echo $senha_usuario ?>" >							
 						</div>
 
 						<div class="col-md-6">							
 								<label>Confirmar Senha</label>
-								<input type="password" class="form-control" id="conf_senha_perfil" name="conf_senha" placeholder="Confirmar Senha" value="" required>							
+								<input type="password" class="form-control" id="conf_senha_perfil" name="conf_senha" placeholder="Confirmar Senha" value="" >							
 						</div>
+					</div>
+
+						<div class="row">
+						<div class="col-md-6">							
+								<label>Endereço</label>
+								<input type="password" class="form-control" id="endereco_perfil" name="senha" placeholder="Endereço" value="<?php echo $endereco_usuario ?>" >							
+						</div>
+
 					</div>
 
 
@@ -744,7 +752,15 @@ if(@$_GET['pagina'] != ""){
 				
 				$('#nome-usuario').text(split[0])
 				$('#nivel-usuario').text(split[1])
-				$('#foto-usuario').text(split[1])
+				$('#foto-usuario').attr("src","images/perfil/" + split[2]);
+
+				$('#nome_perfil').val(split[0]);
+				$('#target-usu').attr("src","images/perfil/" + split[2]);
+				$('#email_perfil').val(split[3]);
+				$('#cpf_perfil').val(split[4]);
+				$('#telefone_perfil').val(split[5]);
+				$('#senha_perfil').val(split[6]);
+				$('#endereco_perfil').val(split[7]);
 				},
 			});
 	}
