@@ -178,6 +178,13 @@
                 </div>
             </section>
         </div>
+
+        <div class="optin bg-light p-5 mt-3">
+            <div class="container text-center">
+                <h2>Quer receber as novidades do Bootstrap <b>Builder </b></h2>
+                <p>Informe seu melhor email abaixo e vamos te notificar!</p>
+            </div>
+        </div>
     </main>
 
     <div class="main_footer">
