@@ -1,0 +1,19 @@
+{
+    "name": "safeno/php-profissional_clube-full-stack",
+    "description": "PHP PROFISSIONAL",
+    "autoload": {
+        "files": [
+            "app/helpers/constantes.php"
+        ],
+        "psr-4": {
+            "app\\": "app"
+        }
+    },
+    "authors": [
+        {
+            "name": "Lucas Safeno",
+            "email": "lugnorio@gmail.com"
+        }
+    ],
+    "require": {}
+}
