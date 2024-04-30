@@ -18,12 +18,23 @@ function routes()
 function exactMathUriInArrayRoutes($uri, $routes)
 {
   if (array_key_exists($uri, $routes)) {
-    return [];
+    return [$uri => $routes[$uri]];
   }
 
   return [];
 } // exactMathUriInArrayRoutes
 
+function regularExpressionMathArrayRoutes($uri, $routes)
+{
+  return $matchedUri = array_filter(
+    array_keys($routes),
+    function ($value) use ($uri) {
+      $regex = str_replace('/', '\/', ltrim($value, '/'));
+
+      return preg_match("/^$regex/", ltrim($uri, '/'));
+    }
+  );
+}
 
 function router()
 {
@@ -31,4 +42,11 @@ function router()
 
   $routes = routes();
   $matchedUri = exactMathUriInArrayRoutes($uri, $routes);
+
+  if (empty($matchedUri)) {
+    $matchedUri = regularExpressionMathArrayRoutes($uri, $routes);
+  }
+
+  var_dump($matchedUri);
+  die();
 } // router()
