@@ -322,8 +322,47 @@ ul{
   margin-left: 20px;
   display: none;
 }
+/*********************** LISTAGEM DE PRODUTOS *****************************/
+.novoMenu nav ul li a{
+  color: var(--cor-btn-font);
+}
 
-/*********************** MENU CELULAR *****************************/
+.novoMenu{
+  box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+.linha-2{
+  margin: 100px auto 50px;
+  justify-content: space-between;
+}
+.linha-2 select{
+  padding: 5px;
+  border: 1px solid var(--cor-padrao);
+}
+.linha-2 select:focus{
+  outline: none;
+}
+
+.paginacao{
+  margin: 0 auto 80px;
+}
+.paginacao span{
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  border: 1px solid var(--cor-padrao);
+  text-align: center;
+  line-height: 40px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.paginacao span:hover{
+  background: var(--cor-padrao);
+  color: var(--cor-font);
+}
+
+/*********************** MENU CELULAR  800*****************************/
 @media only screen and (max-width:800px){
   nav ul{
     position: absolute;
@@ -333,6 +372,7 @@ ul{
     width: 100%;
     overflow: hidden;
     transition: max-height 0.5s;
+    z-index: 99;
   }
   nav ul li{
     display: block;
@@ -348,6 +388,10 @@ ul{
   .menu-celular{
     display: block;
     cursor: pointer;
+  }
+
+  .novoMenu nav ul li a{
+    color: var(--cor-font);
   }
 
 }
@@ -372,6 +416,8 @@ ul{
     text-align: center;
   }
 
-
+  .novoMenu nav ul li a{
+    color: var(--cor-font);
+  }
 
 }
